@@ -6,18 +6,7 @@
 	"output": {
 		"abi": [
 			{
-				"inputs": [
-					{
-						"internalType": "uint256",
-						"name": "_subscriptionFee",
-						"type": "uint256"
-					},
-					{
-						"internalType": "uint256",
-						"name": "_interval",
-						"type": "uint256"
-					}
-				],
+				"inputs": [],
 				"stateMutability": "nonpayable",
 				"type": "constructor"
 			},
@@ -33,12 +22,70 @@
 					{
 						"indexed": false,
 						"internalType": "uint256",
+						"name": "timeRemaining",
+						"type": "uint256"
+					}
+				],
+				"name": "NearExpiration",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "subscriber",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
 						"name": "expiryTimestamp",
 						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "enum SubscriptionService.Tier",
+						"name": "tier",
+						"type": "uint8"
 					}
 				],
 				"name": "SubscriptionRenewed",
 				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "basicFee",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "basicInterval",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "checkNearExpiration",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
 			},
 			{
 				"inputs": [],
@@ -55,7 +102,7 @@
 			},
 			{
 				"inputs": [],
-				"name": "interval",
+				"name": "earlyRenewalDiscount",
 				"outputs": [
 					{
 						"internalType": "uint256",
@@ -81,6 +128,32 @@
 			},
 			{
 				"inputs": [],
+				"name": "premiumFee",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "premiumInterval",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
 				"name": "renewSubscription",
 				"outputs": [],
 				"stateMutability": "payable",
@@ -89,18 +162,11 @@
 			{
 				"inputs": [
 					{
-						"internalType": "uint256",
-						"name": "_newFee",
-						"type": "uint256"
+						"internalType": "enum SubscriptionService.Tier",
+						"name": "tier",
+						"type": "uint8"
 					}
 				],
-				"name": "setSubscriptionFee",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [],
 				"name": "subscribe",
 				"outputs": [],
 				"stateMutability": "payable",
@@ -114,20 +180,26 @@
 						"type": "address"
 					}
 				],
-				"name": "subscriptionExpiry",
+				"name": "subscriberTier",
 				"outputs": [
 					{
-						"internalType": "uint256",
+						"internalType": "enum SubscriptionService.Tier",
 						"name": "",
-						"type": "uint256"
+						"type": "uint8"
 					}
 				],
 				"stateMutability": "view",
 				"type": "function"
 			},
 			{
-				"inputs": [],
-				"name": "subscriptionFee",
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "subscriptionExpiry",
 				"outputs": [
 					{
 						"internalType": "uint256",
@@ -161,7 +233,7 @@
 		"compilationTarget": {
 			"subscription.sol": "SubscriptionService"
 		},
-		"evmVersion": "cancun",
+		"evmVersion": "london",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
@@ -174,11 +246,11 @@
 	},
 	"sources": {
 		"subscription.sol": {
-			"keccak256": "0xbf5dca11c864ab5838fb442e50036d97ef8b10c83e02fc141466b94ef6aa999b",
+			"keccak256": "0xcce9a109716c10468f1851fc68a4ec5c4f2b3ce954c31f61d13aa6f1c700dba6",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://624825abd2a1ce16ec571efec5f4e9357622ed2d596da3ae2d9422af2a29c474",
-				"dweb:/ipfs/QmP6DkuP7WwwZ5PcFXcVJiBbS9TEcajY3kwrhvtr8VaVcm"
+				"bzz-raw://d96f79472b10e412d441da36492f53cce6d664a0d96b8bd33501404ba67f9870",
+				"dweb:/ipfs/QmQmfjnyG3hcVxLZEm1WN1ZxVbtZck4GdYCd7MEsiAyehi"
 			]
 		}
 	},
